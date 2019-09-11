@@ -1,0 +1,89 @@
+install.packages('leaflet',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('leafletCN',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('leaflet.esri',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('leaflet.minicharts',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('leaflet.extras',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('recharts',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('data.table',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('recharts',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('shiny',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('ECharts2Shiny',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('magrittr',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('proj4',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('viridis',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('viridisLite',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('shinythemes',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('purrr',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+install.packages('dplyr',repos='https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
+
+
+ install.packages('rgdal', type = "source", configure.args=c('--with-proj-include=/opt/proj-6.1.1/include','--with-proj-lib=/opt/proj-6.1.1/lib'))
+ opt/proj-6.1.1
+ 
+ yum install gdal-libs
+ yum install proj-nad proj-epsg
+yum install 
+
+
+install.packages('rgdal',type='source',configure.args = paste('--with-gdal-config=/usr/bin/gdal-config','--with-proj-lib=/opt/proj-6.1.1/lib','--with-proj-include=/opt/proj-6.1.1/include') )
+
+Finally, I sovled this issue . Firstly, removing proj4-4.8 by apt-get.
+--with-proj-share
+sudo apt-get remove libproj-dev
+Secondly, adding my compiled proj4-4.9 lib path into a new conf file (such as rgdal.conf) under the path of '/etc/ld.so.conf.d/'.
+
+cd /etc/ld.so.conf.d
+touch rgdal.conf
+echo /opt/proj-6.1.1 | tee -a rgdal.conf 
+And then, installing rgdal with configure.args referencing the compiled lib path of proj4-4.9.
+
+export LD_LIBRARY_PATH=the lib path of proj4-4.9:$LD_LIBRARY_PATH
+
+
+
+
+
+
+发票内容
+
+
+2019-6-18
+18:30左右  北京   150块钱
+
+
+
+2019-8-29   
+15:00左右   西安  150块钱
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
